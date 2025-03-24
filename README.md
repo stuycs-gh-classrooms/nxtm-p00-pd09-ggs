@@ -58,7 +58,9 @@ F = G (A * B) * (Spring) * (Gravity) / (Drag)
 
 ### Custom Force
 - What information that is already present in the `Orb` or `OrbNode` classes does this force use?
-  - YOUR ANSWER HERE
+  - Center of the two circles
+  - Mass
+  - Size
 
 - Does this force require any new constants, if so what are they and what values will you try initially?
   - YOUR ANSWER HERE
