@@ -25,16 +25,17 @@ All projects will require the following:
 ## Phase 0: Force Selection, Analysis & Plan
 
 ## Keybinds:
-- 1,2,3,4,5:
-- R:
-- -,+:
-- ' ':
-- B:
+- 1,2,3,4,5: switches between the 5 forces
+- R: resets everything and sets moving to false
+- -,+: removes/adds orbs
+- ' ': moving/not moving
+- B: bounce/no bounce
 
 
 
 ## Forces:
 - Gravity
+- 
 - Drag
 - Spring
 - Thanapol Effect
@@ -84,7 +85,9 @@ Describe how you will attempt to simulate orbital motion.
 ### Simulation 2: Spring
 Describe what your spring simulation will look like. Explain how it will be setup, and how it should behave while running.
 
-YOUR ANSWER HERE
+Orbs in a straight line or in random positions. Each orb will be connected by a "spring" (black line) to the next or previous orb. 
+When running:
+
 
 --- 
 
