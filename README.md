@@ -38,7 +38,7 @@ All projects will require the following:
 - Drag
 - Spring
 - Thanapol Effect
-- Gravity and Drag
+- Gravity(not orbital motion) and spring
 
 ## Classes:
 - OrbList
@@ -98,19 +98,21 @@ All projects will require the following:
 ### Simulation 3: Drag
 <!--Describe what your drag simulation will look like. Explain how it will be setup, and how it should behave while running.-->
 
-
+-Drag simulation is setup if you press "d". When the simulation is running, the drag force is applied to each OrbNode, slowing them down as they move.
 
 --- 
 
 ### Simulation 4: Custom force
 <!--Describe what your Custom force simulation will look like. Explain how it will be setup, and how it should behave while running.-->
 
-YOUR ANSWER HERE
+## [Draft]
+- Custom force is applied to each OrbNode in the orbs class.
+- It should behave unpredictably 
 
 --- 
 
 ### Simulation 5: Combination
 <!-- Describe what your combination simulation will look like. Explain how it will be setup, and how it should behave while running. -->
 
-YOUR ANSWER HERE
+
 
