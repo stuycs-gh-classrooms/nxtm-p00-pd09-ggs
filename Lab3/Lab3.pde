@@ -20,6 +20,8 @@ void setup() {
 
 void draw() {
   println(toggles[MOVING] );
+  
+  
   displayMode();
 }//draw
 
@@ -29,10 +31,14 @@ when ran, the orbs will be attracted towards the fixedorb
 */
 void gravityArena() {}
 /*dragArena
-multiple and random shapes in the background
+multiple shapes in the background
 any orb that is within a shape will be slowed down
+there will be a keybind eventually to add and drag rectangles
 */
-void dragArena() {}
+void dragArena() {
+stroke(#800080);
+
+}//dragArena
 /*customArena
 havent decided but I think this one will include every arena
 */
@@ -77,3 +83,10 @@ void displayMode() {
     x+= w+5;
   }
 }//display
+
+
+void mousePressed() {
+  if(toggles[DRAGF] && mousePressed) {
+    rect(mouseX, mouseY, random(100), random(100) );
+  }
+}//mousePressed

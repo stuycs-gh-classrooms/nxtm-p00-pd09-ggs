@@ -1,5 +1,6 @@
 class Orb{
-  
+  int mass;
+  color c;
   
   
   
