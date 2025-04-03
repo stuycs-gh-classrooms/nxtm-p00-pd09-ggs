@@ -10,8 +10,10 @@ int SPRING =3;
 int DRAGF =4;
 int CUSTOMF =5;
 int COMBINATION =6;
-boolean[] toggles = new boolean[7];
-String[] modes = {"Moving", "Bounce", "Gravity", "Spring" , "Drag", "Custom", "Combination"};
+int ORDERED =7;
+int FRONT = 8;
+boolean[] toggles = new boolean[9];
+String[] modes = {"Moving", "Bounce", "Gravity", "Spring" , "Drag", "Custom", "Combination", "Ordered","Front"};
 
 OrbArray nodez;
 FixedOrb earth;
@@ -23,9 +25,11 @@ void setup() {
   background(255);
   gravitydown = new PVector(0,0.1);
   
-  earth = new FixedOrb();
+  earth = new FixedOrb(width/2 , height/2, 200, 10000);
+  //originally, earth's FixedOrb's parameters are (width/2, height/2, 200, 10000)
+  //this prevents the orb from appearing in random places around the screen
   nodez = new OrbArray();
-  nodez.populate(5,true); //front + 5 extra
+  nodez.populate(5,toggles[ORDERED]); //front + 5 extra
   
   //testing
   o1 = new Orb();
@@ -34,16 +38,19 @@ void setup() {
 
 void draw() {
   background(255);
+  if (toggles[GRAVITY]) { earth.display(); }
+  
+  
   nodez.display();
   if (toggles[MOVING] ) {
-    
     if (toggles[SPRING] ) {
       nodez.applySprings(SPRING_LENGTH, SPRING_K);
     }//sprung
     
     if (toggles[GRAVITY] ) {
-      earth.display();
+      //earth.display();
       nodez.applyGravity(earth, 0.1);
+      //note: i can maKE THE g constant negative to instead have the orbs push themselves away from the fixedorb
     }//oribtal
     
     if (toggles[DRAGF]) {
@@ -77,10 +84,7 @@ stroke(#800080);
 havent decided but I think this one will include every arena
 */
 void customArena() {}
-/*springArena
-orbs connected to a "spring" and (either one or two) fixed orbs
-*/
-void springArena() {}
+
 /*combinationArena
 arena uses both forces
 */
@@ -95,7 +99,11 @@ void keyPressed() {
   if (key == 'c') {toggles[CUSTOMF] = !toggles[CUSTOMF]; }
   if (key == 's') {toggles[SPRING] = !toggles[SPRING]; }
   if (key == 'a') {toggles[COMBINATION] = !toggles[COMBINATION]; }
-  
+  if (key == 'o') {toggles[ORDERED] = !toggles[ORDERED]; }
+  if (key == 'r') {nodez.populate(5,toggles[ORDERED]); } 
+  if (keyCode == '+') {nodez.OrbAdd(toggles[FRONT]);}
+  if (keyCode == '-') {nodez.OrbRemove(toggles[FRONT]); }
+  if (keyCode == '1') {toggles[FRONT] = !toggles[FRONT]; }
   
 }//keybinds
 
@@ -118,9 +126,10 @@ void displayMode() {
   }
 }//display
 
-
+/* 
 void mousePressed() {
   if(toggles[DRAGF] && mousePressed) {
     rect(mouseX, mouseY, random(100), random(100) );
   }
 }//mousePressed
+*/ //Scrapped

@@ -41,8 +41,9 @@ class OrbArray {
 OrbNode current = front;
     while (current != null)
     { current.display();
-      current.move(toggles[MOVING]);
-      current.applyForce(gravitydown);
+     if (toggles[MOVING]) {
+      current.move(toggles[BOUNCE]);
+      current.applyForce(gravitydown); }
       current = current.next; 
     }
   }//display
@@ -70,6 +71,27 @@ void applyDrag(float coefd) {
     current = current.next;
     }//while
 }//applyDrag
+
+/* OrbAdd
+add a orbnode to front or end of the linked list/orbarray
+*/
+void OrbAdd(boolean frontadd) { 
+  if (frontadd) {
+  front = front.prev;
+  front = new OrbNode(); }
+  
+  else {
+    
+  }//else
+}//OrbAdd
+
+
+/* OrbRemove
+Remove a orbnode at front or end of the linked list/orbarray
+*/
+void OrbRemove(boolean frontremove) {
+  
+}//OrbRemove
 
 
 }//OrbArray
